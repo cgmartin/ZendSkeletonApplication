@@ -65,11 +65,22 @@ return array(
                 'base_dir' => __DIR__ . '/../language',
                 'pattern'  => '%s.mo',
             ),
+            'test-form' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/test/form',
+                    'defaults' => array(
+                        'controller' => 'test',
+                        'action'     => 'form',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Test'  => 'Application\Controller\TestController',
         ),
     ),
     'view_manager' => array(
@@ -81,11 +92,15 @@ return array(
         'template_map' => array(
             'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
+            'application/test/form'   => __DIR__ . '/../view/application/test/form.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',
+        ),
+        'helper_map' => array(
+            'Zend\Form\View\HelperLoader',
         ),
     ),
 );
