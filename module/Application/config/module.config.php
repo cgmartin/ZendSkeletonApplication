@@ -65,13 +65,23 @@ return array(
                 'base_dir' => __DIR__ . '/../language',
                 'pattern'  => '%s.mo',
             ),
-            'test-form' => array(
+            'test-form-email' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
-                    'route'    => '/test/form',
+                    'route'    => '/test/form/email',
                     'defaults' => array(
                         'controller' => 'test',
-                        'action'     => 'form',
+                        'action'     => 'form-email',
+                    ),
+                ),
+            ),
+            'test-form-color' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/test/form/color',
+                    'defaults' => array(
+                        'controller' => 'test',
+                        'action'     => 'form-color',
                     ),
                 ),
             ),

@@ -9,28 +9,18 @@ use Zend\Form\Form,
     Zend\Filter\FilterChain,
     Zend\Validator;
 
-class Html5Form extends Form
+class ColorForm extends Form
 {
-
     /**
-     * @return DateForm
+     * @return ColorForm
      */
     public function prepareElements(array $awardLists = array())
     {
-        $singleEmailElement = new Element\Email('single-email');
-        $singleEmailElement->setAttributes(array(
-            'type'        => 'email',
-            'multiple'    => false,
+        $colorElement = new Element\Color('color');
+        $colorElement->setAttributes(array(
+            'class' => 'span1',
         ));
-        $this->add($singleEmailElement);
-
-        $multiEmailElement = new Element\Email('multi-email');
-        $multiEmailElement->setAttributes(array(
-            'type'        => 'email',
-            'multiple'    => true,
-        ));
-        $this->add($multiEmailElement);
-
+        $this->add($colorElement);
 
         $inputFilter = new InputFilter();
         $this->setInputFilter($inputFilter);

@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="span12">
+        <h2>Form Tests</h2>
+
+        <?php
+        // Init Form
+        $form = $this->form;
+        $form->prepare();
+        ?>
+        <?php echo $this->form()->openTag($form); ?>
+
+            <div>
+                <?php $elem = $form->get('color'); ?>
+                <label>Color:
+                <?php echo $this->formColor($elem); ?>
+                </label>
+                <?php echo $this->formElementErrors($elem); ?>
+            </div>
+
+            <button class="btn btn-primary">Submit</button>
+
+        <?php echo $this->form()->closeTag($form); ?>
+
+        <?php
+        if (!empty($this->data)) {
+            ?><pre><?php
+            print_r($this->data);
+            ?></pre><?php
+        }
+        ?>
+    </div>
+</div>
