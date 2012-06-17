@@ -2,6 +2,8 @@
 
 namespace Application\Controller;
 
+use Application\Form\MultiCheckboxForm;
+
 use Zend\Mvc\Controller\ActionController,
     Zend\View\Model\ViewModel,
     Application\Form\EmailForm,
@@ -13,7 +15,7 @@ class TestController extends ActionController
     {
         $form = new EmailForm('my-form');
         $form
-            ->prepareElements() // TODO: pass in award lists from database
+            ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute('test-form-email'),
             ));
@@ -41,9 +43,37 @@ class TestController extends ActionController
     {
         $form = new ColorForm('my-form');
         $form
-            ->prepareElements() // TODO: pass in award lists from database
+            ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute('test-form-color'),
+            ));
+
+        $data = array();
+        if ($this->getRequest()->isPost()) {
+            // Postback
+            $postData = $this->getRequest()->post();
+            $form->setData($postData);
+            if ($form->isValid()) {
+                $data = $form->getData();
+            } else {
+                $data = $postData;
+            }
+        }
+
+        $view = new ViewModel(array(
+            'form' => $form,
+            'data' => $data,
+        ));
+        return $view;
+    }
+
+    public function formMultiCheckboxAction()
+    {
+        $form = new MultiCheckboxForm('my-form');
+        $form
+            ->prepareElements()
+            ->setAttributes(array(
+                'action' => $this->url()->fromRoute('test-form-multi-checkbox'),
             ));
 
         $data = array();

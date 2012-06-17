@@ -10,19 +10,17 @@
         ?>
         <?php echo $this->form()->openTag($form); ?>
 
-            <div>
-                <?php $elem = $form->get('single-email'); ?>
-                <label>Single Email:
-                <?php echo $this->formEmail($elem); ?>
-                </label>
+            <div class="control-group">
+                <?php $elem = $form->get('multicb'); ?>
+                <label>Multi Checkbox:</label>
+                <?php echo $this->formMultiCheckbox($elem); ?>
                 <?php echo $this->formElementErrors($elem); ?>
             </div>
 
-            <div>
-                <?php $elem = $form->get('multi-email'); ?>
-                <label>Multi Email:
-                <?php echo $this->formEmail($elem); ?>
-                </label>
+            <div class="control-group">
+                <?php $elem = $form->get('radio'); ?>
+                <label>Radio:</label>
+                <?php echo $this->formRadio($elem); ?>
                 <?php echo $this->formElementErrors($elem); ?>
             </div>
 

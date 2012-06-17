@@ -85,6 +85,16 @@ return array(
                     ),
                 ),
             ),
+            'test-form-multi-checkbox' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/test/form/multi-checkbox',
+                    'defaults' => array(
+                        'controller' => 'test',
+                        'action'     => 'form-multi-checkbox',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
