@@ -26,9 +26,20 @@ class MultiCheckboxForm extends Form
             'uncheckedValue' => 'uncheckedValue',
             'options' => array(
                 'Option 1' => 'option1',
-                'Option 2' => 'option2',
+                'Option 2' => array(
+                    'value' => 'option2',
+                    'labelAttributes' => array(
+                        'class' => 'checkbox inline zf-green'
+                    ),
+                ),
                 'Option 3' => 'option3',
-                'Option 4' => 'option4',
+                'Option 4' => array(
+                    'value' => 'option4',
+                    'disabled' => true,
+                    'labelAttributes' => array(
+                        'class' => 'checkbox inline disabled'
+                    ),
+                ),
                 'Option 5' => 'option5',
             ),
         ));
@@ -46,7 +57,12 @@ class MultiCheckboxForm extends Form
                 'Option 2' => 'option2',
                 'Option 3' => 'option3',
                 'Option 4' => 'option4',
-                'Option 5' => 'option5',
+                'Option 5' => array(
+                    'value' => 'option5',
+                    'labelAttributes' => array(
+                        'class' => 'radio inline zf-green'
+                    ),
+                ),
             ),
         ));
         $this->add($radioElement);

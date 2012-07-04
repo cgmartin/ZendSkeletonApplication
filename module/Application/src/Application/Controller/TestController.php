@@ -4,12 +4,13 @@ namespace Application\Controller;
 
 use Application\Form\MultiCheckboxForm;
 
-use Zend\Mvc\Controller\ActionController,
-    Zend\View\Model\ViewModel,
-    Application\Form\EmailForm,
-    Application\Form\ColorForm;
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
+use Application\Form\EmailForm,
+    Application\Form\ColorForm,
+    Application\Form\DateForm;
 
-class TestController extends ActionController
+class TestController extends AbstractActionController
 {
     public function formEmailAction()
     {
@@ -23,7 +24,7 @@ class TestController extends ActionController
         $data = array();
         if ($this->getRequest()->isPost()) {
             // Postback
-            $postData = $this->getRequest()->post();
+            $postData = $this->getRequest()->getPost();
             $form->setData($postData);
             if ($form->isValid()) {
                 $data = $form->getData();
@@ -51,7 +52,7 @@ class TestController extends ActionController
         $data = array();
         if ($this->getRequest()->isPost()) {
             // Postback
-            $postData = $this->getRequest()->post();
+            $postData = $this->getRequest()->getPost();
             $form->setData($postData);
             if ($form->isValid()) {
                 $data = $form->getData();
@@ -79,7 +80,35 @@ class TestController extends ActionController
         $data = array();
         if ($this->getRequest()->isPost()) {
             // Postback
-            $postData = $this->getRequest()->post();
+            $postData = $this->getRequest()->getPost();
+            $form->setData($postData);
+            if ($form->isValid()) {
+                $data = $form->getData();
+            } else {
+                $data = $postData;
+            }
+        }
+
+        $view = new ViewModel(array(
+            'form' => $form,
+            'data' => $data,
+        ));
+        return $view;
+    }
+
+    public function formDateAction()
+    {
+        $form = new DateForm('my-form');
+        $form
+            ->prepareElements()
+            ->setAttributes(array(
+                'action' => $this->url()->fromRoute('test-form-date'),
+            ));
+
+        $data = array();
+        if ($this->getRequest()->isPost()) {
+            // Postback
+            $postData = $this->getRequest()->getPost();
             $form->setData($postData);
             if ($form->isValid()) {
                 $data = $form->getData();
