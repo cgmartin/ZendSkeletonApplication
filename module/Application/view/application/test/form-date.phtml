@@ -23,12 +23,12 @@
         <?php echo $this->form()->closeTag($form); ?>
 
         <?php
-        //if (!empty($this->data)) {
+        if (!empty($this->data)) {
             ?><h3>Postback</h3>
             <pre><?php
             print_r($this->data);
             ?></pre><?php
-        //}
+        }
         ?>
     </div>
 </div>

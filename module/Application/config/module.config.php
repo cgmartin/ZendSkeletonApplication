@@ -105,6 +105,16 @@ return array(
                     ),
                 ),
             ),
+            'test-zf2358' => array(
+                'type' => 'Zend\Mvc\Router\Http\Literal',
+                'options' => array(
+                    'route'    => '/test/zf2358',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Test',
+                        'action'     => 'zf2358',
+                    ),
+                ),
+            ),
         ),
     ),
     'controllers' => array(
