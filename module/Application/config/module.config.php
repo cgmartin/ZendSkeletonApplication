@@ -65,56 +65,6 @@ return array(
                 'base_dir' => __DIR__ . '/../language',
                 'pattern'  => '%s.mo',
             ),
-            'test-form-email' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/test/form/email',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Test',
-                        'action'     => 'form-email',
-                    ),
-                ),
-            ),
-            'test-form-color' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/test/form/color',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Test',
-                        'action'     => 'form-color',
-                    ),
-                ),
-            ),
-            'test-form-multi-checkbox' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/test/form/multi-checkbox',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Test',
-                        'action'     => 'form-multi-checkbox',
-                    ),
-                ),
-            ),
-            'test-form-date' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/test/form/date',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Test',
-                        'action'     => 'form-date',
-                    ),
-                ),
-            ),
-            'test-zf2358' => array(
-                'type' => 'Zend\Mvc\Router\Http\Literal',
-                'options' => array(
-                    'route'    => '/test/zf2358',
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Test',
-                        'action'     => 'zf2358',
-                    ),
-                ),
-            ),
         ),
     ),
     'controllers' => array(

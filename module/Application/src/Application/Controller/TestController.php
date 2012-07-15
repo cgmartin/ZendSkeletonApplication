@@ -19,7 +19,10 @@ class TestController extends AbstractActionController
         $form
             ->prepareElements()
             ->setAttributes(array(
-                'action' => $this->url()->fromRoute('test-form-email'),
+                'action' => $this->url()->fromRoute(
+                    'application',
+                    array('controller' => 'test', 'action' => 'form-email'
+                )),
             ));
 
         $data = array();
@@ -47,7 +50,10 @@ class TestController extends AbstractActionController
         $form
             ->prepareElements()
             ->setAttributes(array(
-                'action' => $this->url()->fromRoute('test-form-color'),
+                'action' => $this->url()->fromRoute(
+                    'application',
+                    array('controller' => 'test', 'action' => 'form-color'
+                )),
             ));
 
         $data = array();
@@ -75,7 +81,10 @@ class TestController extends AbstractActionController
         $form
             ->prepareElements()
             ->setAttributes(array(
-                'action' => $this->url()->fromRoute('test-form-multi-checkbox'),
+                'action' => $this->url()->fromRoute(
+                    'application',
+                    array('controller' => 'test', 'action' => 'form-multi-checkbox'
+                )),
             ));
 
         $data = array();
@@ -103,7 +112,10 @@ class TestController extends AbstractActionController
         $form
             ->prepareElements()
             ->setAttributes(array(
-                'action' => $this->url()->fromRoute('test-form-date'),
+                'action' => $this->url()->fromRoute(
+                    'application',
+                    array('controller' => 'test', 'action' => 'form-date'
+                )),
             ));
 
         $data = array();
@@ -131,7 +143,10 @@ class TestController extends AbstractActionController
         $form
             ->prepareElements()
             ->setAttributes(array(
-                'action' => $this->url()->fromRoute('test-zf2358'),
+                'action' => $this->url()->fromRoute(
+                    'application',
+                    array('controller' => 'test', 'action' => 'zf2358'
+                )),
             ));
 
         $data = array();
