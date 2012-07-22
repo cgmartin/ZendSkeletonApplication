@@ -17,60 +17,61 @@ class MultiCheckboxForm extends Form
      */
     public function prepareElements(array $awardLists = array())
     {
-        $multicbElement = new Element('multicb');
-        $multicbElement->setAttributes(array(
-            'id' => 'my-multicb',
-            'labelAttributes' => array(
+        $multicbElement = new Element\MultiCheckbox('multicb');
+        $multicbElement->setLabelAttributes(array(
                 'class' => 'checkbox inline',
-            ),
-            'uncheckedValue' => 'uncheckedValue',
-            'options' => array(
-                'Option 1' => 'option1',
-                'Option 2' => array(
-                    'value' => 'option2',
-                    'labelAttributes' => array(
-                        'class' => 'checkbox inline zf-green'
+            ))
+            //->setUncheckedValue('foo')
+            ->setAttributes(array(
+                'id' => 'my-multicb',
+                'options' => array(
+                    'Option 1' => 'option1',
+                    'Option 2' => array(
+                        'value' => 'option2',
+                        'labelAttributes' => array(
+                            'class' => 'checkbox inline zf-green'
+                        ),
                     ),
-                ),
-                'Option 3' => 'option3',
-                'Option 4' => array(
-                    'value' => 'option4',
-                    'disabled' => true,
-                    'labelAttributes' => array(
-                        'class' => 'checkbox inline disabled'
+                    'Option 3' => 'option3',
+                    'Option 4' => array(
+                        'value' => 'option4',
+                        'disabled' => true,
+                        'labelAttributes' => array(
+                            'class' => 'checkbox inline disabled'
+                        ),
                     ),
+                    'Option 5' => 'option5',
                 ),
-                'Option 5' => 'option5',
-            ),
-        ));
+            ));
         $this->add($multicbElement);
 
-        $radioElement = new Element('radio');
-        $radioElement->setAttributes(array(
-            'id' => 'my-radio',
-            'labelAttributes' => array(
+        $radioElement = new Element\Radio('radio');
+        $radioElement->setLabelAttributes(array(
                 'class' => 'radio inline',
-            ),
-            'uncheckedValue' => 'uncheckedValue',
-            'options' => array(
-                'Option 1' => 'option1',
-                'Option 2' => 'option2',
-                'Option 3' => 'option3',
-                'Option 4' => 'option4',
-                'Option 5' => array(
-                    'value' => 'option5',
-                    'labelAttributes' => array(
-                        'class' => 'radio inline zf-green'
+            ))
+            //->setUncheckedValue('foo')
+            ->setAttributes(array(
+                'id' => 'my-radio',
+                'options' => array(
+                    'Option 1' => 'option1',
+                    'Option 2' => 'option2',
+                    'Option 3' => 'option3',
+                    'Option 4' => 'option4',
+                    'Option 5' => array(
+                        'value' => 'option5',
+                        'labelAttributes' => array(
+                            'class' => 'radio inline zf-green'
+                        ),
                     ),
                 ),
-            ),
-        ));
+            ));
         $this->add($radioElement);
 
 
 
         $inputFilter = new InputFilter();
 
+        /*
         $multiCbInput = new Input('multicb');
         $multiCbInput->setRequired(false);
         $inputFilter->add($multiCbInput);
@@ -78,6 +79,7 @@ class MultiCheckboxForm extends Form
         $radioInput = new Input('radio');
         $radioInput->setRequired(false);
         $inputFilter->add($radioInput);
+        */
 
         $this->setInputFilter($inputFilter);
 

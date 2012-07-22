@@ -82,7 +82,7 @@ class TestController extends AbstractActionController
             ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute(
-                    'application',
+                    'application/default',
                     array('controller' => 'test', 'action' => 'form-multi-checkbox'
                 )),
             ));
