@@ -9,6 +9,7 @@ use Zend\View\Model\ViewModel;
 use Application\Form\EmailForm,
     Application\Form\ColorForm,
     Application\Form\DateForm,
+    Application\Form\NumberForm,
     Application\Form\Zf2358Form;
 
 class TestController extends AbstractActionController
@@ -51,7 +52,7 @@ class TestController extends AbstractActionController
             ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute(
-                    'application',
+                    'application/default',
                     array('controller' => 'test', 'action' => 'form-color'
                 )),
             ));
@@ -113,7 +114,7 @@ class TestController extends AbstractActionController
             ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute(
-                    'application',
+                    'application/default',
                     array('controller' => 'test', 'action' => 'form-date'
                 )),
             ));
@@ -144,8 +145,39 @@ class TestController extends AbstractActionController
             ->prepareElements()
             ->setAttributes(array(
                 'action' => $this->url()->fromRoute(
-                    'application',
+                    'application/default',
                     array('controller' => 'test', 'action' => 'zf2358'
+                )),
+            ));
+
+        $data = array();
+        if ($this->getRequest()->isPost()) {
+            // Postback
+            $postData = $this->getRequest()->getPost();
+            $form->setData($postData);
+            if ($form->isValid()) {
+                $data = $form->getData();
+            } else {
+                $data = $postData;
+            }
+        }
+
+        $view = new ViewModel(array(
+            'form' => $form,
+            'data' => $data,
+        ));
+        return $view;
+    }
+
+    public function formNumberAction()
+    {
+        $form = new NumberForm('my-form');
+        $form
+            ->prepareElements()
+            ->setAttributes(array(
+                'action' => $this->url()->fromRoute(
+                    'application/default',
+                    array('controller' => 'test', 'action' => 'form-number'
                 )),
             ));
 

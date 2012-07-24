@@ -1,0 +1,34 @@
+
+<div class="row">
+    <div class="span12">
+        <h2>Form Tests</h2>
+
+        <?php
+        // Init Form
+        $form = $this->form;
+        $form->prepare();
+        ?>
+        <?php echo $this->form()->openTag($form); ?>
+
+            <div>
+                <?php $elem = $form->get('num'); ?>
+                <label>Number:
+                <?php echo $this->formNumber($elem); ?>
+                </label>
+                <?php echo $this->formElementErrors($elem); ?>
+            </div>
+
+            <button class="btn btn-primary">Submit</button>
+
+        <?php echo $this->form()->closeTag($form); ?>
+
+        <?php
+        if (!empty($this->data)) {
+            ?><h3>Postback</h3>
+            <pre><?php
+            print_r($this->data);
+            ?></pre><?php
+        }
+        ?>
+    </div>
+</div>
