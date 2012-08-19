@@ -32,7 +32,7 @@ class Zf2358Form extends Form
         ));
         $this->add($mySelectElement);
 
-        $myCheckboxElement = new Element('mycheckbox');
+        $myCheckboxElement = new Element\Checkbox('mycheckbox');
         $myCheckboxElement->setAttributes(array(
             'id' => 'mycheckbox',
             'type' => 'checkbox',
