@@ -1,0 +1,47 @@
+
+<div class="row">
+    <div class="span12">
+        <h2>Form Validation Message Tests</h2>
+
+        <?php
+        // Init Form
+        $form = $this->form;
+        $form->prepare();
+        ?>
+        <?php echo $this->form()->openTag($form); ?>
+
+            <div class="control-group">
+                <?php $elem = $form->get('myselect'); ?>
+                <label>Select:</label>
+                <?php echo $this->formSelect($elem); ?>
+                <?php echo $this->formElementErrors($elem); ?>
+            </div>
+
+            <div class="control-group">
+                <?php $elem = $form->get('mycheckbox'); ?>
+                <label>Checkbox:</label>
+                <?php echo $this->formCheckbox($elem); ?>
+                <?php echo $this->formElementErrors($elem); ?>
+            </div>
+
+            <div class="control-group">
+                <?php $elem = $form->get('mytext'); ?>
+                <label>Text:</label>
+                <?php echo $this->formText($elem); ?>
+                <?php echo $this->formElementErrors($elem); ?>
+            </div>
+
+            <button class="btn btn-primary">Submit</button>
+
+        <?php echo $this->form()->closeTag($form); ?>
+
+        <?php
+        if (!empty($this->data)) {
+            ?><h3>Postback</h3>
+            <pre><?php
+            print_r($this->data);
+            ?></pre><?php
+        }
+        ?>
+    </div>
+</div>
