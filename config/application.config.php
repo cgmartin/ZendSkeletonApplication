@@ -3,6 +3,8 @@ return array(
     'modules' => array(
         'Application',
         'ZendDeveloperTools',
+        'ZfcBase',
+        'CgmConfigAdmin',
         'ZF2FileUploadExamples',
     ),
     'module_listener_options' => array(
